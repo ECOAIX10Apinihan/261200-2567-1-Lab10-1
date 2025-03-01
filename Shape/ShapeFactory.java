@@ -13,12 +13,11 @@ public class ShapeFactory {
     private static final int countSquarelimit = 2;
     private static final int countTotallimit = 5;
     public static Shape getShape(int type) {
-        if (countTotal < countTotallimit) {
-            countTotal++;
             switch (type) {
                 case CIRCLE:
-                if (countCircle < countCirclelimit) {
+                if (countCircle < countCirclelimit && countTotal < countTotallimit) {
                     countCircle++;
+                    countTotal++;
                     return new Circle();
                 } else {
                     System.out.println("Circle limit reached");
@@ -26,8 +25,9 @@ public class ShapeFactory {
                     
                 }
                 case RECTANGLE:
-                if (countRectangle < countRectanglelimit) {
+                if (countRectangle < countRectanglelimit && countTotal < countTotallimit) {
                     countRectangle++;
+                    countTotal++;
                     return new Rectangle();
                 } else {
                     System.out.println("Rectangle limit reached");
@@ -35,8 +35,9 @@ public class ShapeFactory {
                     
                 }
                 case SQUARE:
-                if (countSquare < countSquarelimit) {
+                if (countSquare < countSquarelimit && countTotal < countTotallimit) {
                     countSquare++;
+                    countTotal++;
                     return new Square();
                 } else {
                     System.out.println("Square limit reached");
@@ -45,9 +46,6 @@ public class ShapeFactory {
                 default:
                     return null;
             }
-        } else {
-            System.out.println("Total limit reached");
-            return null;
+     
         }
-    }
 }
